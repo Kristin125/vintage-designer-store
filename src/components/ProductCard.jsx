@@ -1,11 +1,17 @@
-import React from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext.jsx';
 
-const ProductCard = ({ product }) => (
-  <div>
-    <img src={product.image} alt={product.name} />
-    <h3>{product.name}</h3>
-    <p>{product.price}</p>
-  </div>
-);
+const ProductCard = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
+
+  return (
+    <div className="card">
+      <img src={product.image} alt={product.name} />
+      <h3>{product.name}</h3>
+      <p>${product.price}</p>
+      <button onClick={() => addToCart(product)}>Add to Cart</button>
+    </div>
+  );
+};
 
 export default ProductCard;

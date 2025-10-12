@@ -1,10 +1,15 @@
-import products from '../data/products';
 import ProductCard from '../components/ProductCard.jsx';
+import products from '../data/products.js';
 
 const Home = () => {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(220px,1fr))', gap: '1rem', padding: '1rem' }}>
-      {products.map(product => <ProductCard key={product.id} product={product} />)}
+    <div className="container">
+      <h1>Our Collection</h1>
+      <div className="products-grid">
+        {products.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };

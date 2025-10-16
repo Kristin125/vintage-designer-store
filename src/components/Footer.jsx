@@ -1,10 +1,19 @@
+import React from "react";
+import "./Footer.css";
+
 const Footer = () => {
   return (
-    <footer style={{ textAlign: 'center', padding: '1rem', marginTop: '2rem', borderTop: '1px solid #ddd' }}>
-      &copy; 2025 Vintage Designer Store
+    <footer className="footer">
+      <p>© 2025 VintageCo. All rights reserved.</p>
+      <div className="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
     </footer>
   );
 };
 
 export default Footer;
+
 

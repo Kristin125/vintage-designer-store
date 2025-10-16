@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1 className="title">Vintage Designer Collection</h1>
+      <h1>Vintage Designer Collection</h1>
       <div className="product-grid">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />

@@ -1,23 +1,26 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { FaUser, FaShoppingCart } from "react-icons/fa"; 
 import "./Navbar.css";
-import logo from "../assets/logo.png"; // Replace with your logo file
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="nav-logo">
-        <img src={logo} alt="Brand Logo" />
-        <h1>VintageCo</h1>
+      <div className="logo">
+        <Link to="/">Reverie</Link>
       </div>
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/cart">Cart</Link>
-        <Link to="/checkout">Checkout</Link>
-      </div>
+
+      <ul className="nav-links">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/products">Products</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
+        <li className="icon-btn">
+          <Link to="/login"><FaUser size={20} /></Link>
+        </li>
+      </ul>
     </nav>
   );
 };
 
 export default Navbar;
+
 

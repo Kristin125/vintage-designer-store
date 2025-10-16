@@ -1,27 +1,21 @@
-import { useParams } from 'react-router-dom';
-import products from '../data/products.js';
-import { useContext } from 'react';
-import { CartContext } from '../context/CartContext.jsx';
+import React from "react";
+import "./ProductDetail.css";
+import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const { addToCart } = useContext(CartContext);
-  const product = products.find(p => p.id === parseInt(id));
-
-  if (!product) return <p>Product not found</p>;
 
   return (
-    <div className="container product-detail">
-      <img src={product.image} alt={product.name} className="product-img" />
-      <div className="product-info">
-        <h2>{product.name}</h2>
-        <p>${product.price}</p>
-        <p>{product.description}</p>
-        <button onClick={() => addToCart(product)}>Add to Cart</button>
+    <div className="product-detail">
+      <img src={`/images/product-${id}.jpg`} alt="Product" className="product-img" />
+      <div className="details">
+        <h2>Product Name {id}</h2>
+        <p className="price">$120</p>
+        <p className="desc">A timeless vintage piece to elevate your wardrobe.</p>
+        <button className="btn">Add to Cart</button>
       </div>
     </div>
   );
 };
 
 export default ProductDetail;
-

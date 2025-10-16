@@ -1,18 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { CartProvider } from './context/CartContext.jsx';
-import Navbar from './components/Navbar.jsx';
-import Footer from './components/Footer.jsx';
-import Home from './pages/Home.jsx';
-import ProductDetail from './pages/ProductDetail.jsx';
-import Cart from './pages/Cart.jsx';
-import Checkout from './pages/Checkout.jsx';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import "./index.css";
 
-function App() {
+const App = () => {
   return (
-    <CartProvider>
-      <Router>
+    <Router>
+      <div className="app-container">
         <Navbar />
-        <main>
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:id" element={<ProductDetail />} />
@@ -21,9 +22,9 @@ function App() {
           </Routes>
         </main>
         <Footer />
-      </Router>
-    </CartProvider>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

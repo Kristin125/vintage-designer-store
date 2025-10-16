@@ -1,0 +1,37 @@
+.product-detail {
+  background-color: #FAF3F3;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem;
+  flex-wrap: wrap;
+}
+
+.product-img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.details {
+  max-width: 400px;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}

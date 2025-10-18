@@ -1,18 +1,27 @@
-import React from "react";
-import "./ProductDetail.css";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
+import products from "../data/products";
+import { CartContext } from "../context/CartContext";
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const product = products.find(p => String(p.id) === String(id));
+  const { addToCart } = useContext(CartContext);
+
+  if (!product) return <div className="container">Product not found</div>;
 
   return (
-    <div className="product-detail">
-      <img src={`/images/product-${id}.jpg`} alt="Product" className="product-img" />
-      <div className="details">
-        <h2>Product Name {id}</h2>
-        <p className="price">$120</p>
-        <p className="desc">A timeless vintage piece to elevate your wardrobe.</p>
-        <button className="btn">Add to Cart</button>
+    <div className="page container product-detail">
+      <div className="product-detail-left">
+        <img src={product.image} alt={product.name} />
+      </div>
+      <div className="product-detail-right">
+        <h2>{product.name}</h2>
+        <p className="price">£{product.price}</p>
+        <p>{product.description}</p>
+        <div className="detail-actions">
+          <button className="text-btn" onClick={() => addToCart(product)}>Add to cart</button>
+        </div>
       </div>
     </div>
   );

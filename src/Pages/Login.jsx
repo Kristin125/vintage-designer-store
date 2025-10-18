@@ -1,41 +1,30 @@
 import React, { useState } from "react";
-import "./Login.css";
 
 const Login = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [logged, setLogged] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    setLoggedIn(false);
+    setLogged(true);
   };
 
   return (
-    <div className="login-container">
-      {!loggedIn ? (
+    <div className="page container login-page">
+      {!logged ? (
         <>
-          <h1>Welcome Back</h1>
-          <form className="login-form" onSubmit={handleLogin}>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input type="email" id="email" placeholder="you@example.com" required />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" id="password" placeholder="••••••••" required />
-            </div>
-
-            <button type="submit" className="btn-login">Login</button>
+          <h2 className="section-title">Sign In</h2>
+          <form className="login-form" onSubmit={handleSubmit}>
+            <label>Email</label>
+            <input type="email" required />
+            <label>Password</label>
+            <input type="password" required />
+            <button className="text-btn" type="submit">Log in</button>
           </form>
         </>
       ) : (
-        <div className="logout-view">
-          <h2>You’re logged in!</h2>
-          <button className="btn-logout" onClick={handleLogout}>Logout</button>
+        <div className="logged">
+          <h3>You are logged in (mock)</h3>
+          <button className="text-btn" onClick={() => setLogged(false)}>Log out</button>
         </div>
       )}
     </div>

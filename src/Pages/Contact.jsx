@@ -1,32 +1,23 @@
 import React from "react";
-import "./Contact.css";
 
 const Contact = () => {
   return (
-    <div className="contact-container">
-      <h1>Contact Us</h1>
-      <p>We’d love to hear from you! Send us a message below.</p>
+    <div className="page container contact-page">
+      <h2 className="section-title">Contact Us</h2>
+      <p className="lead">Have a question about an item? Send us a message.</p>
 
-      <form className="contact-form">
-        <div className="form-group">
-          <label htmlFor="name">Full Name</label>
-          <input type="text" id="name" placeholder="Your Name" required />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email">Email Address</label>
-          <input type="email" id="email" placeholder="your@email.com" required />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea id="message" rows="5" placeholder="Write your message..." required></textarea>
-        </div>
-
-        <button type="submit" className="btn-submit">Send Message</button>
+      <form className="contact-form" onSubmit={(e)=>{ e.preventDefault(); alert("Message sent — mock"); }}>
+        <label>Full Name</label>
+        <input type="text" required />
+        <label>Email</label>
+        <input type="email" required />
+        <label>Message</label>
+        <textarea rows="5" required />
+        <button className="text-btn" type="submit">Send Message</button>
       </form>
     </div>
   );
 };
 
 export default Contact;
+
